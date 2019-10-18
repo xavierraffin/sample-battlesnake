@@ -50,3 +50,9 @@ engine server --threads 1 --poll-interval 2000ms
 
 START GAME:
 engine create -c ~/BattleSnake/snake-config.json
+
+=========================
+WEB mode:
+repo:
+https://github.com/battlesnakeio/board.git
+https://github.com/battlesnakeio/engine

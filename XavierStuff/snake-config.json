@@ -1,0 +1,23 @@
+{
+  "width": 20,
+  "height": 20,
+  "food": 10,
+  "snakes": [
+    {
+      "name": "Snake 1",
+      "url": "https://dsnek.herokuapp.com"
+    },
+    {
+      "name": "Snake 2",
+      "url": "https://dsnek.herokuapp.com"
+    },
+    {
+      "name": "Snake 3",
+      "url": "https://dsnek.herokuapp.com"
+    },
+    {
+      "name": "Snake 4",
+      "url": "https://dsnek.herokuapp.com"
+    }
+  ]
+}
