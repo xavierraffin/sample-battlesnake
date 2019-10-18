@@ -1,0 +1,52 @@
+Deps:
+sudo apt-get install git screen
+
+wget https://storage.googleapis.com/golang/go1.13.linux-armv6l.tar.gz
+sudo tar -C /usr/local -xzf go1.13.linux-armv6l.tar.gz 
+sudo ln -sf /usr/local/go/bin/go /usr/bin/go
+
+wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-armv7l.tar.xz
+sudo tar -C /usr/local -xJf node-v10.16.3-linux-armv7l.tar.xz
+sudo ln -sf /usr/local/node-v10.16.3-linux-armv7l/bin/node /usr/sbin/node
+sudo ln -sf /usr/local/node-v10.16.3-linux-armv7l/bin/node /usr/bin/node
+sudo ln -sf /usr/local/node-v10.16.3-linux-armv7l/bin/npm /usr/bin/npm
+
+
+In bashrc:
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$HOME/go/bin:$PATH"
+export GOPATH=$HOME/go
+
+Install Engine:
+go get github.com/battlesnakeio/engine
+cd /home/pi/go/src/github.com/battlesnakeio/engine
+make install
+./build_board.sh
+
+======= LAUNCH GAME, BOARD AND SNAKE ======
+
+Start engine in dev mode:
+screen
+engine dev
+
+-> the UI allow to launch games: http://localhost:3010/
+-> Board is running under http://localhost:3009/
+I start with:
+ - https://dsnek.herokuapp.com
+ code is https://github.com/dlsteuer/dsnek
+
+Snake 2019:
+https://github.com/colinjfw/snake - python
+https://github.com/dlsteuer/dsnek - go
+
+Snake 2018: 
+https://github.com/graeme-hill/snakebot (winner 2018) - node C++
+
+======= LAUNCH REAL ======
+screen
+cd /home/pi/go/src/github.com/battlesnakeio/engine
+engine server --threads 1 --poll-interval 2000ms
+
+
+START GAME:
+engine create -c ~/BattleSnake/snake-config.json
