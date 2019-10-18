@@ -56,3 +56,9 @@ WEB mode:
 repo:
 https://github.com/battlesnakeio/board.git
 https://github.com/battlesnakeio/engine
+
+screen -S nameXXX
+python -m SimpleHTTPServer 3010
+engine server --threads 1 --poll-interval 2000ms
+python3 main.py
+cd go/src/github.com/battlesnakeio/engine
