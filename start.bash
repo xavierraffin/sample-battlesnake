@@ -1,4 +1,5 @@
-if [ $1 = "main" ]; then
+echo try starting $1
+if [ $1 = "game" ]; then
   cd /home/pi/BattleSnakeAI/DemoUI
   /usr/bin/screen -dmS MainUI python -m SimpleHTTPServer 3011
   cd
@@ -10,7 +11,8 @@ if [ $1 = "board" ]; then
 fi
 if [ $1 = "engine" ]; then
   cd /home/pi/go/src/github.com/battlesnakeio/engine
-  /usr/bin/screen -dmS Engine engine server
+  #/usr/bin/screen -dmS Engine engine server
+  /usr/bin/screen -dmS Engine /home/pi/go/bin/engine server
   cd
 fi
 if [ $1 = "human1" ]; then

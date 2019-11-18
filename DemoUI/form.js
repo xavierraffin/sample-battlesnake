@@ -7,7 +7,7 @@ $(() => {
   $("#reset-game-btn").click(event => {
     console.log("start-game")
     event.preventDefault()
-    fetch("http://pi:3005/games", {
+    fetch("http://engine:3005/games", {
       method: "POST",
       body: JSON.stringify({
         "width":15,
@@ -22,14 +22,14 @@ $(() => {
 		"url":"https://dsnek.herokuapp.com"
 	},{
 		"name":"human",
-		"url":"http://localhost:8080"
+		"url":"http://human1:8080"
 	}]
       })
     }).then(resp => resp.json())
       .then(json => {
         gameId = json.ID
 	console.log("Game ID = " + gameId)
-	$("#board").attr("src", `http://pi:3009?engine=http://pi:3005&game=${gameId}&autoplay=true`)
+	$("#board").attr("src", `http://board:3009?engine=http://engine:3005&game=${gameId}&autoplay=true`)
       })
       .catch(err => $("#errors").text(err))
   })
@@ -37,7 +37,7 @@ $(() => {
   $("#reset-game-btn2").click(event => {
     console.log("start-game two player")
     event.preventDefault()
-    fetch("http://pi:3005/games", {
+    fetch("http://engine:3005/games", {
       method: "POST",
       body: JSON.stringify({
         "width":15,
@@ -52,10 +52,10 @@ $(() => {
 		"url":"https://dsnek.herokuapp.com"
 	},{
 		"name":"White controller",
-		"url":"http://localhost:8080"
+		"url":"http://human1:8080"
 	},{
 		"name":"Black controller",
-		"url":"http://localhost:8081"
+		"url":"http://human2:8081"
 	}
 	]
       })
@@ -63,7 +63,7 @@ $(() => {
       .then(json => {
         gameId = json.ID
 	console.log("Game ID = " + gameId)
-	$("#board").attr("src", `http://pi:3009?engine=http://pi:3005&game=${gameId}&autoplay=true`)
+	$("#board").attr("src", `http://board:3009?engine=http://engine:3005&game=${gameId}&autoplay=true`)
       })
       .catch(err => $("#errors").text(err))
   })
@@ -74,7 +74,7 @@ $(() => {
   $("#start-game-btn").click(event => {
     console.log("start-game")
     event.preventDefault()
-        fetch(`http://pi:3005/games/${gameId}/start`, {
+        fetch(`http://engine:3005/games/${gameId}/start`, {
           method: "POST"
         }).then(_ => {
           console.log("Game started")
