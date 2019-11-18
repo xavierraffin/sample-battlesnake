@@ -62,3 +62,12 @@ python -m SimpleHTTPServer 3010
 engine server --threads 1 --poll-interval 2000ms
 python3 main.py
 cd go/src/github.com/battlesnakeio/engine
+
+=========================
+
+Temporary Snake:
+
+go get  github.com/dlsteuer/dsnek
+cd ~/go/src/github.com/dlsteuer/dsnek/
+go install
+PORT=8888 dsnek

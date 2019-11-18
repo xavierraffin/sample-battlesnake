@@ -6,7 +6,7 @@ if [ $1 = "game" ]; then
 fi
 if [ $1 = "board" ]; then
   cd /home/pi/go/src/github.com/battlesnakeio/engine/board
-  /usr/bin/screen -dmS Board python -m SimpleHTTPServer 3010
+  /usr/bin/screen -dmS Board python -m SimpleHTTPServer 3009
   cd
 fi
 if [ $1 = "engine" ]; then
