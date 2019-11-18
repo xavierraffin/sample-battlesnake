@@ -25,3 +25,11 @@ if [ $1 = "human2" ]; then
   /usr/bin/screen -dmS Human2 python3 ./main.py
   cd
 fi
+if [ $1 = "ai1" ]; then
+  export PORT=8888
+  /usr/bin/screen -dmS AI1 /home/pi/go/bin/dsnek
+fi
+if [ $1 = "ai2" ]; then
+  export PORT=9999
+  /usr/bin/screen -dmS AI1 /home/pi/go/bin/dsnek
+fi

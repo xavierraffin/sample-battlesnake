@@ -4,6 +4,20 @@ let gameId;
 
 $(() => {
 
+  $("#full-screen-btn").click(event => {
+  var elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    }
+    document.getElementById('full-screen-btn').style.display = "none";
+  })
+
   $("#reset-game-btn").click(event => {
     console.log("start-game")
     event.preventDefault()
@@ -16,10 +30,10 @@ $(() => {
         "MaxTurnsToNextFoodSpawn":0,
         "snakes": [{
 		"name":"snake1",
-		"url":"https://dsnek.herokuapp.com"
+		"url":"http://ai1:8888"
 	},{
 		"name":"snake2",
-		"url":"https://dsnek.herokuapp.com"
+		"url":"http://ai1:9999"
 	},{
 		"name":"human",
 		"url":"http://human1:8080"
@@ -46,10 +60,10 @@ $(() => {
         "MaxTurnsToNextFoodSpawn":0,
         "snakes": [{
 		"name":"snake1",
-		"url":"https://dsnek.herokuapp.com"
+		"url":"http://ai1:8888" // https://dsnek.herokuapp.com
 	},{
 		"name":"snake2",
-		"url":"https://dsnek.herokuapp.com"
+		"url":"http://ai1:9999"
 	},{
 		"name":"White controller",
 		"url":"http://human1:8080"
