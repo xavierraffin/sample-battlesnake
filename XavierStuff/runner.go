@@ -89,6 +89,6 @@ func Runner(ctx context.Context, client pb.ControllerClient, id string) error {
 		framesProcessed.With(prometheus.Labels{}).Inc()
 
 		lastFrame = nextFrame
-		time.Sleep(300 * time.Millisecond)
+		time.Sleep(200 * time.Millisecond)
 	}
 }

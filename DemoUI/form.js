@@ -29,13 +29,13 @@ $(() => {
         "food":10,
         "MaxTurnsToNextFoodSpawn":0,
         "snakes": [{
-		"name":"snake1",
+		"name":"SageMaker 1 (AI)",
 		"url":"http://ai1:8888"
 	},{
-		"name":"snake2",
+		"name":"SageMaker 2 (AI)",
 		"url":"http://ai1:9999"
 	},{
-		"name":"human",
+		"name":"White controller (human)",
 		"url":"http://human1:8080"
 	}]
       })
@@ -59,16 +59,16 @@ $(() => {
         "food":10,
         "MaxTurnsToNextFoodSpawn":0,
         "snakes": [{
-		"name":"snake1",
+		"name":"SageMaker 1 (AI)",
 		"url":"http://ai1:8888" // https://dsnek.herokuapp.com
 	},{
-		"name":"snake2",
+		"name":"SageMaker 2 (AI)",
 		"url":"http://ai1:9999"
 	},{
-		"name":"White controller",
+		"name":"White controller (human)",
 		"url":"http://human1:8080"
 	},{
-		"name":"Black controller",
+		"name":"Black controller (human)",
 		"url":"http://human2:8081"
 	}
 	]
