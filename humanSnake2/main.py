@@ -83,6 +83,16 @@ def move():
     elif(last_axis.get("y",0)>0.5):
        direction='down'
 
+    # Safety: we die if move backward
+    if(last_direction == 'up' and direction == 'down' ):
+       direction = 'up'
+    elif(last_direction == 'down' and direction == 'up' ):
+       direction='down'
+    elif(last_direction == 'left' and direction == 'right' ):
+       direction='left'
+    elif(last_direction == 'right' and direction == 'left' ):
+       direction='right'
+
     last_direction=direction
 
     return move_response(direction)

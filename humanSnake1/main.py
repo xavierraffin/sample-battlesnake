@@ -84,13 +84,13 @@ def move():
        direction='down'
 
     # Safety: we die if move backward
-    if(last_direction = 'up' and direction = 'down' ):
+    if(last_direction == 'up' and direction == 'down' ):
        direction = 'up'
-    elif(last_direction = 'down' and direction = 'up' ):
+    elif(last_direction == 'down' and direction == 'up' ):
        direction='down'
-    elif(last_direction = 'left' and direction = 'right' ):
+    elif(last_direction == 'left' and direction == 'right' ):
        direction='left'
-    elif(last_direction = 'right' and direction = 'left' ):
+    elif(last_direction == 'right' and direction == 'left' ):
        direction='right'
 
     last_direction=direction
