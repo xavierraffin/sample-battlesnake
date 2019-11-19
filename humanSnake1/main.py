@@ -10,6 +10,7 @@ from xbox360controller import Xbox360Controller
 
 last_axis={"x":0,"y":0}
 last_direction='up'
+first_move=True
 
 def on_axis_moved(axis):
 #    print('Axis {0} moved to {1} {2}'.format(axis.name, axis.x, axis.y))
@@ -44,6 +45,8 @@ def ping():
 @bottle.post('/start')
 def start():
     data = bottle.request.json
+    global first_move
+    first_move = True
 
     """
     TODO: If you intend to have a stateful snake AI,
@@ -84,14 +87,17 @@ def move():
        direction='down'
 
     # Safety: we die if move backward
-    if(last_direction == 'up' and direction == 'down' ):
-       direction = 'up'
-    elif(last_direction == 'down' and direction == 'up' ):
-       direction='down'
-    elif(last_direction == 'left' and direction == 'right' ):
-       direction='left'
-    elif(last_direction == 'right' and direction == 'left' ):
-       direction='right'
+    global first_move
+    if(not first_move):
+       if(last_direction == 'up' and direction == 'down' ):
+           direction = 'up'
+       elif(last_direction == 'down' and direction == 'up' ):
+          direction='down'
+       elif(last_direction == 'left' and direction == 'right' ):
+          direction='left'
+       elif(last_direction == 'right' and direction == 'left' ):
+          direction='right'
+    first_move=False
 
     last_direction=direction
 
