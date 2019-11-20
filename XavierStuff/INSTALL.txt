@@ -71,3 +71,8 @@ go get  github.com/dlsteuer/dsnek
 cd ~/go/src/github.com/dlsteuer/dsnek/
 go install
 PORT=8888 dsnek
+
+==========================
+
+https://withblue.ink/2019/07/13/yes-you-can-run-docker-on-raspbian.html
+sudo docker pull thomasdelteil/battlesnake:v0.1
