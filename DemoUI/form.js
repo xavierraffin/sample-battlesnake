@@ -63,7 +63,7 @@ $(() => {
 		"url":"http://ai1:8888" // https://dsnek.herokuapp.com
 	},{
 		"name":"SageMaker 2 (AI)",
-		"url":"http://ai1:9999"
+		"url":"http://ai2:9999", //"https://2s9cg4gzhl.execute-api.us-east-2.amazonaws.com/dev/", // "http://ai1:9999"
 	},{
 		"name":"White controller (human)",
 		"url":"http://human1:8080"
