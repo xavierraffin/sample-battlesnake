@@ -26,13 +26,13 @@ if [ $1 = "human2" ]; then
   cd
 fi
 if [ $1 = "ai1" ]; then
-  cd /home/pi/BattleSnakeAI/TomJonoAI
+  cd /home/pi/BattleSnakeAI/Ross
   /usr/bin/screen -dmS AI1 python main.py --port 8888 --snake 0
 #  export PORT=8888
 #  /usr/bin/screen -dmS AI1 /home/pi/go/bin/dsnek
 fi
 if [ $1 = "ai2" ]; then
-  cd /home/pi/BattleSnakeAI/TomJonoAI
+  cd /home/pi/BattleSnakeAI/Ross
   /usr/bin/screen -dmS AI2 python main.py --port 9999 --snake 1
 #  export PORT=9999
 #  /usr/bin/screen -dmS AI1 /home/pi/go/bin/dsnek
