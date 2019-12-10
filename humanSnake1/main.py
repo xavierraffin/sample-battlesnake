@@ -1,4 +1,5 @@
 import json
+import argparse
 import os
 import random
 import bottle
@@ -11,6 +12,7 @@ from xbox360controller import Xbox360Controller
 last_axis={"x":0,"y":0}
 last_direction='up'
 first_move=True
+snakeColor="#000"
 
 def on_axis_moved(axis):
 #    print('Axis {0} moved to {1} {2}'.format(axis.name, axis.x, axis.y))
@@ -45,7 +47,7 @@ def ping():
 @bottle.post('/start')
 def start():
     data = bottle.request.json
-    global first_move
+    global first_move, snakeColor
     first_move = True
 
     """
@@ -55,7 +57,7 @@ def start():
     """
     print(json.dumps(data))
 
-    color = "#00FF00"
+    color = snakeColor
 
     return start_response(color)
 
@@ -121,6 +123,16 @@ def end():
 # Expose WSGI app (so gunicorn can find it)
 application = bottle.default_app()
 
+parser = argparse.ArgumentParser(
+                description='Start the human Snake')
+
+parser.add_argument('--port',type=int, default=8080, metavar="S", help='port for the API')
+parser.add_argument('--color',type=string, default="#000", metavar="S", help='color of the Snake')
+
+args = parser.parse_args()
+port = args.port
+snakeColor = args.color
+
 if __name__ == '__main__':
     try:
        with Xbox360Controller(0, axis_threshold=0.2) as controller:
@@ -129,7 +141,7 @@ if __name__ == '__main__':
           bottle.run(
              application,
              host=os.getenv('IP', '0.0.0.0'),
-             port=os.getenv('PORT', '8080'),
+             port=os.getenv('PORT', port),
              debug=os.getenv('DEBUG', True)
           )
     except KeyboardInterrupt:
