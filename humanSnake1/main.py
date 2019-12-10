@@ -128,14 +128,16 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument('--port',type=int, default=8080, metavar="S", help='port for the API')
 parser.add_argument('--color',type=string, default="#000", metavar="S", help='color of the Snake')
+parser.add_argument('--controllerId',type=int, default=0, metavar="S", help='Controller ID')
 
 args = parser.parse_args()
 port = args.port
+controllerId = args.controllerId
 snakeColor = args.color
 
 if __name__ == '__main__':
     try:
-       with Xbox360Controller(0, axis_threshold=0.2) as controller:
+       with Xbox360Controller(controllerId, axis_threshold=0.2) as controller:
           controller.axis_l.when_moved = on_axis_moved
           controller.axis_r.when_moved = on_axis_moved
           bottle.run(
