@@ -16,13 +16,13 @@ if [ $1 = "engine" ]; then
   cd
 fi
 if [ $1 = "human1" ]; then
-  cd /home/pi/BattleSnakeAI/humanSnake1
-  /usr/bin/screen -dmS Human1 python3 ./main.py
+  cd /home/pi/BattleSnakeAI/humanSnake
+  /usr/bin/screen -dmS Human1 python3 ./main.py --port 8080 --color "#F00" --controllerId 0
   cd
 fi
 if [ $1 = "human2" ]; then
   cd /home/pi/BattleSnakeAI/humanSnake2
-  /usr/bin/screen -dmS Human2 python3 ./main.py
+  /usr/bin/screen -dmS Human2 python3 ./main.py --port 8081 --color "#0F0" --controllerId 1
   cd
 fi
 if [ $1 = "ai1" ]; then
